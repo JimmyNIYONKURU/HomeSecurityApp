@@ -11,7 +11,8 @@ import javax.swing.*;
  * Displays the current status of the system. Implements the StatusListener
  * interface so that it can be notified whenever the status changes.
  */
-public class DisplayPanel extends JPanel implements StatusListener {
+public class DisplayPanel extends JPanel implements StatusListener
+{
 
     private JLabel currentStatusLabel;
 
@@ -43,12 +44,14 @@ public class DisplayPanel extends JPanel implements StatusListener {
     }
 
     @Override
-    public void catDetected(boolean catDetected) {
+    public void catDetected(boolean catDetected)
+    {
         // no behavior necessary
     }
 
     @Override
-    public void sensorStatusChanged() {
+    public void sensorStatusChanged()
+    {
         // no behavior necessary
     }
 }

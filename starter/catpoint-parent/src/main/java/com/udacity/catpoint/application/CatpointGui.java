@@ -14,7 +14,8 @@ import javax.swing.*;
  * We're not using any dependency injection framework, so this class also handles constructing
  * all our dependencies and providing them to other classes as necessary.
  */
-public class CatpointGui extends JFrame {
+public class CatpointGui extends JFrame
+{
     private SecurityRepository securityRepository = new PretendDatabaseSecurityRepositoryImpl();
     private FakeImageService imageService = new FakeImageService();
     private SecurityService securityService = new SecurityService(securityRepository, imageService);
@@ -23,7 +24,8 @@ public class CatpointGui extends JFrame {
     private SensorPanel sensorPanel = new SensorPanel(securityService);
     private ImagePanel imagePanel = new ImagePanel(securityService);
 
-    public CatpointGui() {
+    public CatpointGui()
+    {
         setLocation(100, 100);
         setSize(600, 850);
         setTitle("Very Secure App");

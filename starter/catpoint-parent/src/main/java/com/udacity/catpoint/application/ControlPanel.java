@@ -13,13 +13,15 @@ import java.util.stream.Collectors;
 /**
  * JPanel containing the buttons to manipulate arming status of the system.
  */
-public class ControlPanel extends JPanel {
+public class ControlPanel extends JPanel
+{
 
     private SecurityService securityService;
     private Map<ArmingStatus, JButton> buttonMap;
 
 
-    public ControlPanel(SecurityService securityService) {
+    public ControlPanel(SecurityService securityService)
+    {
         super();
         setLayout(new MigLayout());
         this.securityService = securityService;

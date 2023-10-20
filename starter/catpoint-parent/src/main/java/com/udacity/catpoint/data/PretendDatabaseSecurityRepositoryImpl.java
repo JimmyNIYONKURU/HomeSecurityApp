@@ -13,7 +13,8 @@ import java.util.prefs.Preferences;
  * memory and writes it to user preferences between app loads. This implementation is
  * intentionally a little hard to use in unit tests, so watch out!
  */
-public class PretendDatabaseSecurityRepositoryImpl implements SecurityRepository{
+public class PretendDatabaseSecurityRepositoryImpl implements SecurityRepository
+{
 
     private Set<Sensor> sensors;
     private AlarmStatus alarmStatus;
@@ -27,7 +28,8 @@ public class PretendDatabaseSecurityRepositoryImpl implements SecurityRepository
     private static final Preferences prefs = Preferences.userNodeForPackage(PretendDatabaseSecurityRepositoryImpl.class);
     private static final Gson gson = new Gson(); //used to serialize objects into JSON
 
-    public PretendDatabaseSecurityRepositoryImpl() {
+    public PretendDatabaseSecurityRepositoryImpl()
+    {
         //load system state from prefs, or else default
         alarmStatus = AlarmStatus.valueOf(prefs.get(ALARM_STATUS, AlarmStatus.NO_ALARM.toString()));
         armingStatus = ArmingStatus.valueOf(prefs.get(ARMING_STATUS, ArmingStatus.DISARMED.toString()));
@@ -35,10 +37,13 @@ public class PretendDatabaseSecurityRepositoryImpl implements SecurityRepository
         //we've serialized our sensor objects for storage, which should be a good warning sign that
         // this is likely an impractical solution for a real system
         String sensorString = prefs.get(SENSORS, null);
-        if(sensorString == null) {
+        if(sensorString == null)
+        {
             sensors = new TreeSet<>();
-        } else {
-            Type type = new TypeToken<Set<Sensor>>() {
+        } else
+        {
+            Type type = new TypeToken<Set<Sensor>>()
+            {
             }.getType();
             sensors = gson.fromJson(sensorString, type);
         }
@@ -76,17 +81,20 @@ public class PretendDatabaseSecurityRepositoryImpl implements SecurityRepository
     }
 
     @Override
-    public Set<Sensor> getSensors() {
+    public Set<Sensor> getSensors()
+    {
         return sensors;
     }
 
     @Override
-    public AlarmStatus getAlarmStatus() {
+    public AlarmStatus getAlarmStatus()
+    {
         return alarmStatus;
     }
 
     @Override
-    public ArmingStatus getArmingStatus() {
+    public ArmingStatus getArmingStatus()
+    {
         return armingStatus;
     }
 }
